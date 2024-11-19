@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { EnterpriseLogo } from '@/components/logos/EnterpriseLogo'
 
 export default function EnterpriseNavbar() {
   const [isOpen, setIsOpen] = useState(false)

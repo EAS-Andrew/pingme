@@ -8,7 +8,7 @@ export default function Developers() {
               Built for Developers
             </h2>
             <p className="text-xl mb-8 text-gray-300">
-              Access PingMe's powerful features through our comprehensive API. 
+              Access PingMe&apos;s powerful features through our comprehensive API. 
               Build custom solutions with our flexible SDK.
             </p>
             <div className="space-y-4">

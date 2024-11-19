@@ -8,7 +8,7 @@ export default function ContactCTA() {
           </h2>
           <p className="text-xl mb-8 opacity-90">
             Our enterprise team is ready to help you design a solution that meets 
-            your specific needs. Let's discuss how PingMe can work for your organization.
+            your specific needs. Let&apos;s discuss how PingMe can work for your organization.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-primary px-8 py-4 rounded-lg 

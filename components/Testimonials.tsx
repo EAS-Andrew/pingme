@@ -37,11 +37,11 @@ export default function Testimonials() {
             <div key={index} className="bg-white rounded-lg p-8 shadow-lg relative">
               {/* Quote mark decoration */}
               <div className="absolute top-4 right-4 text-6xl text-primary/10">
-                "
+                &quot;
               </div>
               
               <blockquote className="text-gray-700 mb-6 relative z-10">
-                "{testimonial.quote}"
+                &quot;{testimonial.quote}&quot;
               </blockquote>
               
               <div className="flex items-center">

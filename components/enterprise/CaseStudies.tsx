@@ -50,7 +50,7 @@ export default function CaseStudies() {
                   </div>
                 </div>
                 <blockquote className="text-gray-700 italic mb-6">
-                  "{study.quote}"
+                  &quot;{study.quote}&quot;
                 </blockquote>
                 <div className="flex items-center">
                   <div className="ml-4">

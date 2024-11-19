@@ -14,10 +14,17 @@ export default function EnterpriseNavbar() {
 
   return (
     <nav className="bg-white shadow-sm">
-      {/* Return to main site banner - moved outside container */}
+      {/* Return to main site banner - Desktop */}
       <div className="hidden md:flex justify-center items-center bg-gray-50 py-2 w-full">
         <Link href="/" className="text-gray-600 hover:text-primary transition-colors">
           ← Return to PingMe.com
+        </Link>
+      </div>
+
+      {/* Return to main site banner - Mobile */}
+      <div className="md:hidden flex justify-center items-center bg-gray-50 py-2 w-full">
+        <Link href="/" className="text-gray-600 hover:text-primary transition-colors">
+          ← PingMe.com
         </Link>
       </div>
 

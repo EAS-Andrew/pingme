@@ -22,6 +22,13 @@ export default function Navbar() {
         </Link>
       </div>
 
+      <div className="md:hidden flex justify-center items-center bg-primary/5 py-2 w-full">
+        <Link href="/enterprise" 
+          className="text-primary font-semibold hover:text-primary/80">
+          PingMe Enterprise →
+        </Link>
+      </div>
+
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
@@ -84,7 +91,7 @@ export default function Navbar() {
         <div 
           className={`md:hidden transition-all duration-300 ease-in-out ${
             isOpen 
-              ? 'opacity-100 max-h-64' 
+              ? 'opacity-100 max-h-96' 
               : 'opacity-0 max-h-0'
           } overflow-hidden`}
         >

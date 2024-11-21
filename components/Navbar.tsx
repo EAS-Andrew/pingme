@@ -1,114 +1,56 @@
-'use client'
-import { useState } from 'react'
-import Link from 'next/link'
-
-const mainNavItems = [
-  { name: 'Products', href: '#products' },
-  { name: 'Features', href: '#features' },
-  { name: 'Pricing', href: '#pricing' },
-  { name: 'Developers', href: '#developers' },
-]
+"use client";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-
-  return (
-    <nav className="bg-white shadow-sm">
-      <div className="hidden md:flex justify-center items-center bg-primary/5 py-2 w-full">
-        <span className="text-primary">Looking for enterprise solutions?</span>
-        <Link href="/enterprise" 
-          className="ml-2 font-semibold text-primary hover:text-primary/80 underline">
-          Visit PingMe Enterprise →
-        </Link>
-      </div>
-
-      <div className="md:hidden flex justify-center items-center bg-primary/5 py-2 w-full">
-        <Link href="/enterprise" 
-          className="text-primary font-semibold hover:text-primary/80">
-          PingMe Enterprise →
-        </Link>
-      </div>
-
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
-          <div className="flex items-center">
-            <Link href="/" className="text-primary">
-              <img 
-                src="/images/pingme-logo.svg" 
-                alt="PingMe Logo" 
-                className="h-8 w-auto"
-              />
-            </Link>
-          </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {mainNavItems.map((item) => (
-              <Link key={item.name} href={item.href} className="text-gray-medium hover:text-primary transition-colors">
-                {item.name}
-              </Link>
-            ))}
-            <button className="bg-primary text-white px-6 py-2 rounded-lg 
-              font-semibold hover:bg-primary/90 transition-colors">
-              Get Started
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button 
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-medium p-2"
-              aria-label="Toggle menu"
-            >
-              <svg 
-                className="w-6 h-6" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                {isOpen ? (
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <div 
-          className={`md:hidden transition-all duration-300 ease-in-out ${
-            isOpen 
-              ? 'opacity-100 max-h-96' 
-              : 'opacity-0 max-h-0'
-          } overflow-hidden`}
+    return (
+        <motion.nav
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="fixed w-full z-50 bg-gradient-to-b from-[#0f172a]/95 to-transparent"
         >
-          <div className="py-4 space-y-4">
-            {mainNavItems.map((item) => (
-              <Link key={item.name} href={item.href} 
-                className="block text-gray-medium hover:text-primary transition-colors">
-                {item.name}
-              </Link>
-            ))}
-            <button className="w-full bg-primary text-white px-6 py-2 rounded-lg 
-              font-semibold hover:bg-primary/90 transition-colors">
-              Get Started
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
-  )
-} 
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center h-20">
+                    <Link href="/" className="flex-shrink-0">
+                        <Image
+                            src="/images/logo.svg"
+                            alt="PingMe Logo"
+                            width={160}
+                            height={42}
+                            className="w-auto h-[42px] opacity-90 hover:opacity-100 transition-opacity"
+                            priority
+                        />
+                    </Link>
+
+                    <div className="hidden md:flex items-center gap-8">
+                        <Link href="#features" className="text-sm text-gray-300 hover:text-white transition-colors">
+                            Features
+                        </Link>
+                        <Link href="#how-it-works" className="text-sm text-gray-300 hover:text-white transition-colors">
+                            How It Works
+                        </Link>
+                        <motion.button
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="bg-white/10 backdrop-blur-sm text-white px-5 py-2 rounded-md text-sm font-medium 
+                                hover:bg-white/20 transition-colors border border-white/10"
+                        >
+                            Get Started
+                        </motion.button>
+                    </div>
+
+                    {/* Mobile menu button */}
+                    <div className="md:hidden">
+                        <button className="text-white p-2">
+                            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </motion.nav>
+    );
+}

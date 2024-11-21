@@ -1,27 +1,28 @@
-import Hero from '@/components/Hero'
-import HowItWorks from '@/components/HowItWorks'
-import AppFeatures from '@/components/AppFeatures'
-import UseCases from '@/components/UseCases'
-import Pricing from '@/components/Pricing'
-import Testimonials from '@/components/Testimonials'
-import CTA from '@/components/CTA'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-
+"use client";
+import { motion } from "framer-motion";
+import Hero from "@/components/Hero";
+import Features from "@/components/Features";
+import HowItWorks from "@/components/HowItWorks";
+import Contact from "@/components/Contact";
+import ParticlesBackground from "@/components/ParticlesBackground";
+import Footer from "@/components/Footer";
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <main>
+    <main className="min-h-screen text-white relative">
+      <div className="absolute inset-0 pointer-events-none">
+        <ParticlesBackground />
+      </div>
+      <div className="relative z-10">
         <Hero />
-        <HowItWorks />
-        <Pricing />
-        <AppFeatures />
-        <UseCases />
-        <Testimonials />
-        <CTA />
-      </main>
-      <Footer />
-    </>
-  )
+        <section id="features">
+          <Features />
+        </section>
+        <section id="how-it-works">
+          <HowItWorks />
+        </section>
+        <Contact />
+        <Footer />
+      </div>
+    </main>
+  );
 }

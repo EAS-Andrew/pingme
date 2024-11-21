@@ -1,49 +1,63 @@
-export default function HowItWorks() {
-  const steps = [
-    {
-      title: 'Record',
-      description: 'Open the app and start recording your meeting with one tap.',
-      icon: '🎙️'
-    },
-    {
-      title: 'Listen',
-      description: 'Our AI enhances voices and reduces background noise automatically.',
-      icon: '👂'
-    },
-    {
-      title: 'Review',
-      description: 'Get instant transcripts, key points, and action items.',
-      icon: '📝'
-    },
-    {
-      title: 'Share',
-      description: 'Share meeting notes and action items with participants instantly.',
-      icon: '✉️'
-    }
-  ]
+"use client";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import {
+    BeakerIcon,
+    CircleStackIcon,
+    PresentationChartLineIcon
+} from '@heroicons/react/24/outline';
 
-  return (
-    <section className="py-20 bg-gray-light">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16 text-primary">
-          How PingMe Works
-        </h2>
-        <div className="grid md:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
-            <div key={step.title} className="relative">
-              {index !== steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/4 right-0 w-full 
-                  border-t-2 border-dashed border-primary/30" />
-              )}
-              <div className="bg-white p-8 rounded-lg shadow-lg relative z-10">
-                <div className="text-4xl mb-4">{step.icon}</div>
-                <h3 className="text-xl font-bold text-primary mb-4">{step.title}</h3>
-                <p className="text-gray-medium">{step.description}</p>
-              </div>
+const steps = [
+    {
+        title: "Data Collection",
+        description: "Securely collect and process customer interactions across all your communication channels",
+        icon: CircleStackIcon
+    },
+    {
+        title: "AI Analysis",
+        description: "Advanced machine learning algorithms analyze patterns, sentiment, and key metrics",
+        icon: BeakerIcon
+    },
+    {
+        title: "Actionable Insights",
+        description: "Transform raw data into strategic business decisions with comprehensive reporting",
+        icon: PresentationChartLineIcon
+    }
+];
+
+export default function HowItWorks() {
+    return (
+        <section id="how-it-works" className="py-20 px-4 md:px-8 bg-gray-900/50">
+            <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-semibold mb-4">How It Works</h2>
+                    <p className="text-gray-400 max-w-2xl mx-auto">
+                        A streamlined process to transform your customer communication
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-12 relative">
+                    {steps.map((step, index) => (
+                        <motion.div
+                            key={step.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            viewport={{ once: true }}
+                            className="relative"
+                        >
+                            <div className="flex flex-col items-center text-center">
+                                <div className="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center mb-6">
+                                    <step.icon className="w-8 h-8 text-blue-400" />
+                                </div>
+                                <h3 className="text-xl font-medium mb-3">{step.title}</h3>
+                                <p className="text-gray-400">{step.description}</p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+        </section>
+    );
 } 
